@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorlib</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900
+    ;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&
+    family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==
+    " crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #scrollButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 16px 20px;
+            background-color: #00AEFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: none;
+        }
+
+        .fa-square-whatsapp {
+            font-size: 50px;
+            position: fixed;
+            bottom: 80px;
+            right: 24px;
+            z-index: 1;
+        }
+
+        .navigation-bar {
+            display: none;
+            margin-right: 20px;
+        }
+
+        @media(max-width:991px) {
+            .navigation-bar {
+                display: block;
+            }
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            padding: 15px;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #00aeff;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+            display: block;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover {
+            background-color: #004274;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var scrollButton = document.getElementById('scrollButton');
+
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 200) {
+                    scrollButton.style.display = 'block';
+                } else {
+                    scrollButton.style.display = 'none';
+                }
+            });
+
+            scrollButton.addEventListener('click', scrollToTop);
+        });
+
+
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "300px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+    </script>
+</head>
+
+<body>
+    <a href="https://web.whatsapp.com/"><i class="fa-brands fa-square-whatsapp" style="color: #00ff00;"></i></a>
+    <button id="scrollButton" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- header block start -->
+    <div class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="inner-top-main">
+                    <div class="inner-top">
+                        <div class="task-bar">
+                            <div class="header-logo">
+                                <img src="assets/header-logo.png" alt="">
+                            </div>
+                            <ul class="ul-inner" type="none">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Property</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Blog</a>
+                                    <ul class="sub-menu" type="none">
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Blog Details</a></li>
+                                        <li><a href="#">Elements</a></li>
+                                    </ul>
+
+                                </li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="contact-header">
+                            <p>Call Us:<span>+10 (78) 356 3276</span></p>
+                            <a href="#">Sing In</a>
+                        </div>
+                        <div class="navigation-bar">
+                            <span class="menu-icon" onclick="openSidebar()"><i class="fa-solid fa-bars"
+                                    style="color: white;"></i></span>
+                            <div id="mySidebar" class="sidebar">
+                                <span class="close-btn" onclick="closeSidebar()"><i
+                                        class="fa-solid fa-xmark"></i></span>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Property</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Sign in</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="inner-bottom-main">
+                    <div class="inner-header-bottom">
+                        <div class="search">
+                            <input type="search" placeholder="Enter Key word..">
+                            <div class="search-icon">
+                                <i class="fa-solid fa-magnifying-glass" style="color: #D9DEE2;"></i>
+                            </div>
+                        </div>
+                        <div class="rent space">
+                            <a href="#">Rent</a>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div class="bed space">
+                            <img src="assets/bed.svg" alt="">
+                            <a href="#">Bed</a>
+
+                        </div>
+                        <div class="bath space">
+                            <img src="assets/bath.svg" alt="">
+                            <a href="#">Bath</a>
+                        </div>
+                        <a href="#" class="search-botton space">Search</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header block end  -->
+
+    <!--block-one start-->
+    <div class="main-one">
+        <div class="main-one-img">
+            <img src="assets/home-bg.png" alt="">
+        </div>
+        <div class="container">
+            <div class="inner-main">
+                <div class="inner-item">
+                    <span>3 Bed - 2 Bath - 2200 Sq Ft</span>
+                    <h1>Light House NY</h1>
+                    <p class="two">Get started by choosing from one of our pre-built page
+                        templates to showcase your properties</p>
+                    <span>$ 3,272</span>
+                    <a href="#">View Property</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--block-one end-->
+
+    <!--block-second start-->
+    <div class="main-sec">
+        <div class="container">
+            <div class="inner-main-sec">
+                <div class="heding">
+                    <span>Display Latest & Featured Properties</span>
+                    <span>Get started by choosing from one of our pre-built page templates to showcase your properties
+                    </span>
+                </div>
+                <div class="item-sec">
+                    <div class="inner-item-sec one">
+                        <div class="border">
+                            <div class="picture">
+                                <img src="assets/room-2.png" alt="">
+                            </div>
+                            <div class="content">
+                                <span>$ 6728</span>
+                                <h3>Appartment</h3>
+                                <p>Get started by choosing from one of our pre-built page templates to showcase your
+                                    properties
+                                </p>
+                            </div>
+                            <div class="logo-content">
+                                <div class="logo">
+                                    <img src="assets/bed.svg" alt="">
+                                    <span>2 Bedroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/bath.svg" alt="">
+                                    <span>2 Bathroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/building.svg" alt="">
+                                    <span>1050 Sq Ft</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-item-sec two">
+                        <div class="border">
+                            <div class="picture">
+                                <img src="assets/room-1.png" alt="">
+                            </div>
+                            <div class="content">
+                                <span>$ 6728</span>
+                                <h3>Office</h3>
+                                <p>Get started by choosing from one of our pre-built page templates to showcase your
+                                    properties
+                                </p>
+                            </div>
+                            <div class="logo-content">
+                                <div class="logo">
+                                    <img src="assets/bed.svg" alt="">
+                                    <span>2 Bedroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/bath.svg" alt="">
+                                    <span>2 Bathroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/building.svg" alt="">
+                                    <span>1050 Sq Ft</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="inner-item-sec three">
+                        <div class="border">
+                            <div class="picture">
+                                <img src="assets/room-2.png" alt="">
+                            </div>
+                            <div class="content">
+                                <span>$ 6728</span>
+                                <h3>Classic home</h3>
+                                <p>Get started by choosing from one of our pre-built page templates to showcase
+                                    your
+                                    properties
+                                </p>
+                            </div>
+                            <div class="logo-content">
+                                <div class="logo">
+                                    <img src="assets/bed.svg" alt="">
+                                    <span>2 Bedroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/bath.svg" alt="">
+                                    <span>2 Bathroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/building.svg" alt="">
+                                    <span>1050 Sq Ft</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--block-second end-->
+
+    <!--block-third start-->
+    <div class="main-thr">
+        <div class="container">
+            <div class="inner-main-thr">
+                <div class="heading">
+                    <strong>How we help people?</strong>
+                </div>
+                <div class="item-thr">
+                    <div class="inner-item-thr">
+                        <div class="ser-logo">
+                            <img src="assets/services1.svg" alt="">
+                        </div>
+                        <div class="ser-content">
+                            <span>Sell home or office</span>
+                            <p>Get started by choosing from one of our pre-built page
+                                templates to showcase your properties</p>
+                        </div>
+                    </div>
+                    <div class="inner-item-thr">
+                        <div class="ser-logo">
+                            <img src="assets/services2.svg" alt="">
+                        </div>
+                        <div class="ser-content">
+                            <span>Rent home or office</span>
+                            <p>Get started by choosing from one of our pre-built page
+                                templates to showcase your properties</p>
+                        </div>
+                    </div>
+                    <div class="inner-item-thr">
+                        <div class="ser-logo">
+                            <img src="assets/services3.svg" alt="">
+                        </div>
+                        <div class="ser-content">
+                            <span>Find text</span>
+                            <p>Get started by choosing from one of our pre-built page
+                                templates to showcase your properties</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--block-third end-->
+
+    <!--block-fourth start-->
+    <div class="main-sec">
+        <div class="container">
+            <div class="inner-main-sec">
+                <div class="heding">
+                    <h1>Properties for Sale</h1>
+                    <p>Get started by choosing from one of our pre-built page templates to showcase your properties
+                    </p>
+                </div>
+                <div class="item-sec">
+                    <div class="inner-item-sec one">
+                        <div class="border">
+                            <div class="picture">
+                                <img src="assets/room-2.png" alt="">
+                            </div>
+                            <div class="content">
+                                <span>$ 6728</span>
+                                <h3>Appartment</h3>
+                                <p>Get started by choosing from one of our pre-built page templates to showcase your
+                                    properties
+                                </p>
+                            </div>
+                            <div class="logo-content">
+                                <div class="logo">
+                                    <img src="assets/bed.svg" alt="">
+                                    <span>2 Bedroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/bath.svg" alt="">
+                                    <span>2 Bathroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/building.svg" alt="">
+                                    <span>1050 Sq Ft</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-item-sec two">
+                        <div class="border">
+                            <div class="picture">
+                                <img src="assets/room-1.png" alt="">
+                            </div>
+                            <div class="content">
+                                <span>$ 6728</span>
+                                <h3>Office</h3>
+                                <p>Get started by choosing from one of our pre-built page templates to showcase your
+                                    properties
+                                </p>
+                            </div>
+                            <div class="logo-content">
+                                <div class="logo">
+                                    <img src="assets/bed.svg" alt="">
+                                    <span>2 Bedroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/bath.svg" alt="">
+                                    <span>2 Bathroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/building.svg" alt="">
+                                    <span>1050 Sq Ft</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="inner-item-sec three">
+                        <div class="border">
+                            <div class="picture">
+                                <img src="assets/room-2.png" alt="">
+                            </div>
+                            <div class="content">
+                                <span>$ 6728</span>
+                                <h3>Classic home</h3>
+                                <p>Get started by choosing from one of our pre-built page templates to showcase
+                                    your
+                                    properties
+                                </p>
+                            </div>
+                            <div class="logo-content">
+                                <div class="logo">
+                                    <img src="assets/bed.svg" alt="">
+                                    <span>2 Bedroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/bath.svg" alt="">
+                                    <span>2 Bathroom</span>
+                                </div>
+                                <div class="logo">
+                                    <img src="assets/building.svg" alt="">
+                                    <span>1050 Sq Ft</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--block-fourth end-->
+
+    <!--block-five start-->
+    <div class="main-fou">
+        <div class="container">
+            <div class="inner-main-fou">
+                <div class="item-fou">
+                    <div class="inner-item-one">
+                        <strong>Explore <br> by Property Type</strong>
+                        <p>Get started by choosing from one of our pre-built page templates to showcase your
+                            properties </p>
+                        <a href="*">View All Property</a>
+                    </div>
+                    <div class="inner-item-two">
+
+                        <div class="block">
+                            <img src="assets/property1.svg" alt="">
+                            <p><a href="*">Home & Appartment</a></p>
+
+                        </div>
+                        <div class="block">
+                            <img src="assets/property2.svg" alt="">
+                            <p><a href="*">Vila</a></p>
+                        </div>
+                        <div class="block">
+                            <img src="assets/property3.svg" alt="">
+                            <p> <a href="*">Studio</a></p>
+                        </div>
+                        <div class="block">
+                            <img src="assets/property4.svg" alt="">
+                            <p> <a href="*">Office</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--block-five end-->
+
+    <!--block-six start-->
+    <div class="main-fif">
+        <div class="container">
+            <div class="inner-main-fif">
+                <div class="title">
+                    <strong>Our Agents</strong>
+                    <p>Get started by choosing from one of our pre-built page templates to <br>showcase your
+                        properties</p>
+                </div>
+                <div class="item-fif">
+                    <div class="inner-item-fif  one">
+                        <img src="assets/team1.jpg.webp" alt="">
+                        <div class="caption">
+                            <h3>
+                                <a href="*">Buster Hyman</a>
+                            </h3>
+                            <p>Real Estate Agent</p>
+                        </div>
+                    </div>
+                    <div class="inner-item-fif  two">
+
+                        <img src="assets/team2.jpg.webp" alt="">
+                        <div class="caption">
+                            <h3>
+                                <a href="*">Holly Graham</a>
+                            </h3>
+                            <p>Real Estate Agent</p>
+                        </div>
+                    </div>
+
+                    <div class="inner-item-fif  thr">
+
+                        <img src="assets/team3.jpg.webp" alt="">
+                        <div class="caption">
+                            <h3>
+                                <a href="*">Nick R. Bocker</a>
+                            </h3>
+                            <p>Real Estate Agent</p>
+                        </div>
+                    </div>
+
+                    <div class="inner-item-fif  thr">
+
+                        <img src="assets/team4.jpg.webp" alt="">
+                        <div class="caption">
+                            <h3>
+                                <a href="*">Jimmy Changa</a>
+                            </h3>
+                            <p>Real Estate Agent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--block-six end-->
+
+    <!--block-seven start-->
+    <div class="main-six">
+        <div class="six-block-parts">
+            <div class="content-six-block">
+                <div class="content">
+                    <strong>Subscribe Newsletter</strong>
+                    <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
+                    <input type="email" placeholder="Enter your email">
+                    <a href="#">Subscibe</a>
+                </div>
+            </div>
+            <div class="home-img">
+                <img src="assets/home.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!--block-seven end-->
+
+    <!-- footer block  -->
+    <div class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-column one">
+                        <div class="img-logo"><img src="assets/logo-footer.png" alt=""></div>
+                        <p>Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum</p>
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                        <span><i class="fa-brands fa-facebook"></i></span>
+                        <span><i class="fa-brands fa-linkedin-in"></i></span>
+                        <span><i class="fa-brands fa-youtube"></i></span>
+                    </div>
+                    <div class="footer-column two">
+                        <div class="column-title">Navigation</div>
+                        <ul type="none">
+                            <li><a href="*">Home</a></li>
+                            <li><a href="*">About</a></li>
+                            <li><a href="*">Services</a></li>
+                            <li><a href="*">Blog</a></li>
+                            <li><a href="*">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column three">
+                        <div class="column-title">Services</div>
+                        <ul type="none">
+                            <li><a href="*">Drone Mapping</a></li>
+                            <li><a href="*">Real State</a></li>
+                            <li><a href="*">Commercial</a></li>
+                            <li><a href="*">Construction</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column foure">
+                        <div class="column-title">Support</div>
+                        <ul type="none">
+                            <li><a href="*">Drone Mapping</a></li>
+                            <li><a href="*">Real State</a></li>
+                            <li><a href="*">Commercial</a></li>
+                            <li><a href="*">Construction</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column fifth">
+                        <div class="column-title">Contact Us</div>
+                        <ul type="none">
+                            <li><a href="*">Drone Mapping</a></li>
+                            <li><a href="*" class="border">contact@carwash.com</a></li>
+                            <li><a href="*" class="call">10 (87) 738-3940</a></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="inner-footer-bottom">
+                <div class="container">
+                    <p>Copyright ©2024 ALL rights reserved | This template is made with
+                        <i class="fa fa-heart color-danger"></i> by <a href="">Colorib</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer block end -->
+
+
+</body>
+
+</html>
